@@ -17,7 +17,21 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "auth-config": [
+        "dist/auth-config"
+      ],
+      "auth-config/*": [
+        "dist/auth-config/*"
+      ],
+      "authorize": [
+        "dist/authorize"
+      ],
+      "authorize/*": [
+        "dist/authorize/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

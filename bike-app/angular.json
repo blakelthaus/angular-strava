@@ -5,11 +5,7 @@
   "projects": {
     "bike-app": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -28,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -93,7 +89,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -121,6 +117,76 @@
             "production": {
               "devServerTarget": "bike-app:serve:production"
             }
+          }
+        }
+      }
+    },
+    "auth-config": {
+      "projectType": "library",
+      "root": "projects/auth-config",
+      "sourceRoot": "projects/auth-config/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/auth-config/tsconfig.lib.json",
+            "project": "projects/auth-config/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/auth-config/src/test.ts",
+            "tsConfig": "projects/auth-config/tsconfig.spec.json",
+            "karmaConfig": "projects/auth-config/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/auth-config/tsconfig.lib.json",
+              "projects/auth-config/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "authorize": {
+      "projectType": "library",
+      "root": "projects/authorize",
+      "sourceRoot": "projects/authorize/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/authorize/tsconfig.lib.json",
+            "project": "projects/authorize/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/authorize/src/test.ts",
+            "tsConfig": "projects/authorize/tsconfig.spec.json",
+            "karmaConfig": "projects/authorize/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/authorize/tsconfig.lib.json",
+              "projects/authorize/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
